@@ -25,7 +25,6 @@ Plugin 'gmarik/Vundle.vim'
 " Plugin 'user/L9', {'name': 'newL9'}
 
 " My Plugins
-" Bundle 'powerline/powerline', {'rtp': 'powerline/bindings/vim/'}
 
 Plugin 'powerline/powerline', {'rtp': 'powerline/bindings/vim/'}
   set laststatus=2 " always display the powerline
@@ -34,6 +33,12 @@ Plugin 'powerline/powerline', {'rtp': 'powerline/bindings/vim/'}
 Plugin 'kien/ctrlp.vim'
   " ctrlp show dotfiles
   let g:ctrlp_show_hidden = 1
+
+Plugin 'ntpeters/vim-better-whitespace'
+  " strip whitespace automagically
+  autocmd FileType ruby,javascript,html,css autocmd BufWritePre <buffer> StripWhitespace
+
+Plugin 'tpope/vim-rails'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
