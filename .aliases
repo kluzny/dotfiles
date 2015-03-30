@@ -13,6 +13,7 @@ alias c="clear"
 alias v="vim"
 alias f="find . -iname"
 alias b="bundle"
+alias be="bundle exec"
 alias bu="bundle update"
 alias rdbcreate="bundle exec rake db:create" 
 alias rdbmigrate="bundle exec rake db:migrate && bundle exec rake db:test:prepare"
@@ -24,10 +25,10 @@ alias rs='bundle exec rails server unicorn'
 alias aspec='ALL=1 rspec'
 alias pspec='3pline;bundle exec rake parallel:spec;3pline;cat tmp/failing_specs.log;pline;cat tmp/failing_specs.log | grep rspec'
 
-alias ff="open -a Firefox 'http://localhost:3000'"
-alias bb="open -a Firefox 'http://bitbucket.org'"
-alias gmail="open -a Firefox 'http://mail.google.com'"
-alias google="open -a Firefox 'http://google.com'"
+alias lh="open -a Google\ Chrome 'http://localhost:3000'"
+alias bb="open -a Google\ Chrome 'http://bitbucket.org'"
+alias gmail="open -a Google\ Chrome 'http://mail.google.com'"
+alias google="open -a Google\ Chrome 'http://google.com'"
 
 alias mat="cmatrix -a -b -u 4"
 alias cowloop="while true; do clear; (fortune -a| cowsay);sleep 10; done;"
@@ -40,3 +41,7 @@ alias hdb="heroku pg:info --app"
 
 alias rrg="bundle exec rake routes | grep"
 alias cop="bundle exec rubocop -DR"
+
+alias pg_start="pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start"
+alias pg_stop="pg_ctl -D /usr/local/var/postgres stop -s -m fast"
+alias pg_status="pg_ctl -D /usr/local/var/postgres status"
