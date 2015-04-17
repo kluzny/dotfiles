@@ -106,3 +106,10 @@ set shiftwidth=2 " size of an "indent"
 set softtabstop=2 " a combination of spaces and tabs are used to simulate tab stops
 set smarttab " make tab insert indents instead of tabs at the beginning of a line
 set expandtab " always uses spaces instead of tab characters
+
+
+" ctrl + hjkl split navigation
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
