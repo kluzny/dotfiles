@@ -21,7 +21,7 @@ alias rdbrollback="bundle exec rake db:rollback"
 alias rdbup='ver=; vared -p "VERSION: " ver; bundle exec rake db:migrate:up VERSION=$ver'
 alias rdbdown='ver=; vared -p "VERSION: " ver; bundle exec rake db:migrate:down VERSION=$ver'
 alias rspecjs='SHOWJS=1 rspec'
-alias rs='bundle exec rails server unicorn'
+alias rs='bundle exec rails server'
 alias aspec='ALL=1 rspec'
 alias pspec='3pline;bundle exec rake parallel:spec;3pline;cat tmp/failing_specs.log;pline;cat tmp/failing_specs.log | grep rspec'
 
