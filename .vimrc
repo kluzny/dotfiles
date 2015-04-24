@@ -39,6 +39,12 @@ Plugin 'ntpeters/vim-better-whitespace'
   autocmd FileType ruby,javascript,html,css autocmd BufWritePre <buffer> StripWhitespace
 
 Plugin 'tpope/vim-rails'
+Plugin 'jiangmiao/auto-pairs'
+
+" some js stuff
+Plugin 'jelera/vim-javascript-syntax'
+Plugin 'pangloss/vim-javascript'
+Plugin 'nathanaelkane/vim-indent-guides'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -55,10 +61,13 @@ filetype plugin indent on    " required
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
 
+" enable syntax highlighting
+syntax on
+
 "stupid autoindent
 set noautoindent
 
-"smerter line nummers
+"smerter line nummers 7.4+
 set number
 autocmd InsertEnter * :set number
 autocmd InsertEnter * :set norelativenumber
