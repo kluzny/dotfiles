@@ -33,9 +33,15 @@ alias google="open -a Google\ Chrome 'http://google.com'"
 
 # git
 alias gs="git status"
+alias gd="git diff"
 alias gl="git lg"
 alias glg="git log"
 alias gu="git undo"
+alias gk="git checkout"
+alias gb="git checkout -b"
+alias ga="git add"
+alias gr="git rm"
+alias gmv="git mv"
 alias gc="git commit -m"
 alias gam="git commit -am"
 
