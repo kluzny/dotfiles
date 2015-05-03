@@ -1,47 +1,75 @@
+alias reload="source ~/.*shrc"
+
+# shell commands
 alias ls="ls -a"
 alias ll="ls -lahrt"
 
-alias byby="say 'All systems are shutting down, Goodbye kai ull' && sudo shutdown -h now"
+function mkcd () {
+  mkdir -pv "$1" && cd "$1"
+}
+
 alias ..2="../../"
 alias ..3="../../../"
 alias ..4="../../../../"
-alias pline="printf '%*s\n' \"${COLUMNS:-$(tput cols)}\" '' | tr ' ' -"
-alias 3pline="pline;pline;pline"
-alias reload="source ~/.zshrc"
-alias kp="open -a KeePassX"
+
+alias up="cd .."
+alias up2="cd ../.."
+alias up3="cd ../../.."
+alias up4="cd ../../../.."
+
 alias c="clear"
 alias v="vim"
 alias f="find . -iname"
-alias b="bundle"
-alias be="bundle exec"
-alias bu="bundle update"
-alias rdbcreate="bundle exec rake db:create" 
-alias rdbmigrate="bundle exec rake db:migrate && bundle exec rake db:test:prepare"
-alias rdbrollback="bundle exec rake db:rollback"
-alias rdbup='ver=; vared -p "VERSION: " ver; bundle exec rake db:migrate:up VERSION=$ver'
-alias rdbdown='ver=; vared -p "VERSION: " ver; bundle exec rake db:migrate:down VERSION=$ver'
-alias rspecjs='SHOWJS=1 rspec'
-alias rs='bundle exec rails server'
-alias aspec='ALL=1 rspec'
-alias pspec='3pline;bundle exec rake parallel:spec;3pline;cat tmp/failing_specs.log;pline;cat tmp/failing_specs.log | grep rspec'
 
+alias pline="printf '%*s\n' \"${COLUMNS:-$(tput cols)}\" '' | tr ' ' -"
+alias 3pline="pline;pline;pline"
+
+# applications
+alias kp="open -a KeePassX"
 alias lh="open -a Google\ Chrome 'http://localhost:3000'"
 alias bb="open -a Google\ Chrome 'http://bitbucket.org'"
 alias gmail="open -a Google\ Chrome 'http://mail.google.com'"
 alias google="open -a Google\ Chrome 'http://google.com'"
 
-alias mat="cmatrix -a -b -u 4"
-alias cowloop="while true; do clear; (fortune -a| cowsay);sleep 10; done;"
+# git
+alias gs="git status"
+alias gl="git lg"
+alias glg="git log"
+alias gu="git undo"
+alias gc="git commit -m"
+alias gam="git commit -am"
 
+# rails
+alias b="bundle"
+alias be="bundle exec"
+alias bu="bundle update"
+alias cop="bundle exec rubocop -DR"
+alias rrg="bundle exec rake routes | grep"
+alias rdbcreate="bundle exec rake db:create"
+alias rdbmigrate="bundle exec rake db:migrate && bundle exec rake db:test:prepare"
+alias rdbrollback="bundle exec rake db:rollback"
+alias rdbup="ver=; vared -p 'VERSION: ' ver; bundle exec rake db:migrate:up VERSION=$ver"
+alias rdbdown="ver=; vared -p 'VERSION: ' ver; bundle exec rake db:migrate:down VERSION=$ver"
+alias rspecjs="SHOWJS=1 rspec"
+alias rs="bundle exec rails server"
+alias aspec="ALL=1 rspec"
+alias pspec="3pline;bundle exec rake parallel:spec;3pline;cat tmp/failing_specs.log;pline;cat tmp/failing_specs.log | grep rspec"
+
+# heroku
 alias hc="heroku run --size=PX rails c --app"
 alias hl="heroku logs -t --app"
 alias hp="heroku ps --app"
 alias hm="heroku run rake db:migrate --app"
 alias hdb="heroku pg:info --app"
 
-alias rrg="bundle exec rake routes | grep"
-alias cop="bundle exec rubocop -DR"
-
+# postgres
 alias pg_start="pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start"
 alias pg_stop="pg_ctl -D /usr/local/var/postgres stop -s -m fast"
 alias pg_status="pg_ctl -D /usr/local/var/postgres status"
+
+# network
+alias wanip="curl ipinfo.io/ip"
+
+# fun
+alias mat="cmatrix -a -b -u 4"
+alias byby="say 'All systems are shutting down, Goodbye' && sudo shutdown -h now"
