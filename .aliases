@@ -1,8 +1,8 @@
 alias reload="source ~/.*shrc"
 
 # shell commands
-alias ls="ls -a"
-alias ll="ls -lahrt"
+alias ls="ls -a --color"
+alias ll="ls -lahrt --color"
 
 function mkcd () {
   mkdir -pv "$1" && cd "$1"
