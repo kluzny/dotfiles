@@ -44,6 +44,7 @@ Plugin 'jiangmiao/auto-pairs'
 " some js stuff
 Plugin 'jelera/vim-javascript-syntax'
 Plugin 'pangloss/vim-javascript'
+Plugin 'mustache/vim-mustache-handlebars'
 Plugin 'nathanaelkane/vim-indent-guides'
 
 " some template stuff
