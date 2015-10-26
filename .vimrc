@@ -48,7 +48,28 @@ Plugin 'mustache/vim-mustache-handlebars'
 Plugin 'nathanaelkane/vim-indent-guides'
 
 " some template stuff
-Bundle 'slim-template/vim-slim.git'
+Plugin 'slim-template/vim-slim.git'
+
+" Syntax Checking
+" Syntax Checking
+Plugin 'scrooloose/syntastic'
+
+" Syntastic Config
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_auto_jump=0
+let g:syntastic_enable_signs=1
+
+let g:syntastic_ruby_checkers = ['rubocop']
+let g:syntastic_javascript_checkers = ['jshint']
+let g:syntastic_scss_checkers = ['scss_lint']
+let g:syntastic_filetype_map = { 'handlebars.html': 'handlebars' }
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
