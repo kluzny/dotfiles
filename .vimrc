@@ -33,6 +33,9 @@ Plugin 'powerline/powerline', {'rtp': 'powerline/bindings/vim/'}
 Plugin 'kien/ctrlp.vim'
   " ctrlp show dotfiles
   let g:ctrlp_show_hidden = 1
+  let g:ctrlp_custom_ignore = {
+  \ 'dir': '\v\/(log|tmp|frontend\/node_modules)'
+  \ }
 
 Plugin 'ntpeters/vim-better-whitespace'
   " strip whitespace automagically
