@@ -34,7 +34,7 @@ Plugin 'kien/ctrlp.vim'
   " ctrlp show dotfiles
   let g:ctrlp_show_hidden = 1
   let g:ctrlp_custom_ignore = {
-  \ 'dir': '\v\/(log|tmp|frontend\/node_modules)'
+  \ 'dir': '\v\/(\.git|log|tmp|frontend\/node_modules|frontend\/bower_components)'
   \ }
 
 Plugin 'ntpeters/vim-better-whitespace'
