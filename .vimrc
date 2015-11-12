@@ -74,6 +74,9 @@ let g:syntastic_javascript_checkers = ['jshint']
 let g:syntastic_scss_checkers = ['scss_lint']
 let g:syntastic_filetype_map = { 'handlebars.html': 'handlebars' }
 
+Plugin 'scrooloose/nerdcommenter'
+let NERDSpaceDelims=1
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
