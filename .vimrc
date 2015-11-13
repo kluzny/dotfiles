@@ -73,6 +73,7 @@ let g:syntastic_ruby_checkers = ['rubocop']
 let g:syntastic_javascript_checkers = ['jshint']
 let g:syntastic_scss_checkers = ['scss_lint']
 let g:syntastic_filetype_map = { 'handlebars.html': 'handlebars' }
+let g:syntastic_mode_map = {'passive_filetypes': ['handlebars']}
 
 Plugin 'scrooloose/nerdcommenter'
 let NERDSpaceDelims=1
