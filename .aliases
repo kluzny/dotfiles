@@ -49,6 +49,7 @@ alias gc="git commit -m"
 alias gam="git commit -am"
 
 # rails
+alias fs="foreman start"
 alias b="bundle"
 alias be="bundle exec"
 alias ber="bundle exec rspec"
