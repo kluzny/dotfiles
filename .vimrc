@@ -75,6 +75,10 @@ let g:syntastic_scss_checkers = ['scss_lint']
 let g:syntastic_filetype_map = { 'handlebars.html': 'handlebars' }
 let g:syntastic_mode_map = {'passive_filetypes': ['handlebars']}
 
+" Sometime this is really annoying
+nnoremap <leader>T <ESC>:SyntasticToggleMode<CR>
+nnoremap <leader>t <ESC>:lclose<CR>
+
 Plugin 'scrooloose/nerdcommenter'
 let NERDSpaceDelims=1
 
@@ -148,9 +152,18 @@ set softtabstop=2 " a combination of spaces and tabs are used to simulate tab st
 set smarttab " make tab insert indents instead of tabs at the beginning of a line
 set expandtab " always uses spaces instead of tab characters
 
-
 " ctrl + hjkl split navigation
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
+
+" fold settings
+set foldmethod=indent   "fold based on indent
+set foldnestmax=10      "deepest fold is 10 levels
+set nofoldenable        "dont fold by default
+set foldlevel=1         "this is just what i use
+
+" show keypresses mid-command
+set showcmd
+
