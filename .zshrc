@@ -100,7 +100,6 @@ setopt SHARE_HISTORY
 setopt EXTENDED_HISTORY
 
 alias history="fc -diD -l 0"
-alias h="history"
 
 # on open 
 cd ~/Development
