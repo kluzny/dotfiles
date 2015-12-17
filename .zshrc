@@ -110,3 +110,14 @@ export PATH="/usr/local/heroku/bin:$PATH"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+[[ -r $NVM_DIR/bash_completion ]] && . $NVM_DIR/bash_completion
+
+
+# The next line updates PATH for the Google Cloud SDK.
+source $HOME/google-cloud-sdk/path.zsh.inc
+
+# The next line enables shell command completion for gcloud.
+source $HOME/google-cloud-sdk/completion.zsh.inc
+export PATH=$PATH:$HOME/Development/kubernetes-molecule/bin
+export KUBEDIR=$HOME/Development/kubernetes-molecule
+export PATH="/usr/local/sbin:$PATH"
