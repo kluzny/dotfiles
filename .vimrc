@@ -164,6 +164,14 @@ set foldnestmax=10      "deepest fold is 10 levels
 set nofoldenable        "dont fold by default
 set foldlevel=1         "this is just what i use
 
+nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
+vnoremap <Space> zf
+
 " show keypresses mid-command
 set showcmd
 
+" json formatting
+command PPjson %!python -m json.tool
+
+" xml formatting
+command PPxml %!xmllint --encode UTF-8 --format -
