@@ -17,6 +17,14 @@ function my_git_remote_status() {
   echo "${${GIT_REM_STATUS/\(/}/\)/}"
 }
 
+function check_exit_code() {
+  if [[ $? -ne 0 ]]; then
+    echo "%{$fg_bold[red]%}$(DATE) ☢  $?%{$reset_color%}"
+  else
+    echo "%{$fg_bold[white]%}$(DATE)%{$reset_color%}"
+  fi
+}
+
 local git_branch='$(my_git_prompt_info)%{$reset_color%}$(my_git_remote_status)'
 
 START="ॐ  "
@@ -26,9 +34,6 @@ BRANCH=" 🌴  "
 CLOUD="☁ "
 LOCATION="💾 "
 
-# traditional
-# PROMPT="$fg_bold[white]$START$reset_color$fg[blue]%n$AT_SIGN$reset_color$fg[cyan]%m$LOCATION$reset_color$fg_bold[cyan]%2~ $git_branch$reset_color%B$SYMBOL%b"
-
 # slim
 PROMPT=""\
 "%{$fg_bold[white]%}$START%{$reset_color%}"\
@@ -36,7 +41,7 @@ PROMPT=""\
 "$git_branch%{$reset_color%}"\
 "%B$SYMBOL%b"
 
-RPS1="%{$fg_bold[red]%}$(DATE) ☢  $?%{$reset_color%}"
+RPS1="$(check_exit_code)"
 
 ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg_bold[yellow]%}"
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}"
