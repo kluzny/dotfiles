@@ -1,12 +1,14 @@
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
+export EDITOR="vim"
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
 # ZSH_THEME="robbyrussell"
-ZSH_THEME="lukerandall"
+# ZSH_THEME="lukerandall"
+ZSH_THEME="emojeezispentwaytoomuchtimeonthis"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -56,7 +58,7 @@ export PATH=$HOME/bin:/usr/local/bin:$PATH
 source $ZSH/oh-my-zsh.sh
 
 # You may need to manually set your language environment
-# export LANG=en_US.UTF-8
+export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
@@ -118,6 +120,13 @@ source $HOME/google-cloud-sdk/path.zsh.inc
 
 # The next line enables shell command completion for gcloud.
 source $HOME/google-cloud-sdk/completion.zsh.inc
-export PATH=$PATH:$HOME/Development/kubernetes-molecule/bin
 export KUBEDIR=$HOME/Development/kubernetes-molecule
-export PATH="/usr/local/sbin:$PATH"
+export PATH=$PATH:$KUBEDIR/bin
+
+# go
+export GO15VENDOREXPERIMENT=1
+export GOPATH=$HOME/Development/golang
+export PATH=$PATH:$GOPATH/bin
+
+export PATH=$PATH:"/usr/local/sbin"
+export PATH=$PATH:/usr/local/opt/go/libexec/bin

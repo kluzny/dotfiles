@@ -53,7 +53,21 @@ Plugin 'nathanaelkane/vim-indent-guides'
 " some template stuff
 Plugin 'slim-template/vim-slim.git'
 
-" Syntax Checking
+" Golang
+Plugin 'fatih/vim-go'
+au FileType go nmap <leader>r <Plug>(go-run)
+au FileType go nmap <leader>b <Plug>(go-install)
+au FileType go nmap <Leader>d <Plug>(go-doc)
+au FileType go nmap <Leader>i <Plug>(go-implements)
+au FileType go setl noet ci pi sts=0 sw=4 ts=4
+
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_structs = 1
+let g:go_highlight_interfaces = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_build_constraints = 1
+
 " Syntax Checking
 Plugin 'scrooloose/syntastic'
 
@@ -74,6 +88,8 @@ let g:syntastic_javascript_checkers = ['jshint']
 let g:syntastic_scss_checkers = ['scss_lint']
 let g:syntastic_filetype_map = { 'handlebars.html': 'handlebars' }
 let g:syntastic_mode_map = {'passive_filetypes': ['handlebars']}
+let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
+let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go']  }
 
 " Sometime this is really annoying
 nnoremap <leader>T <ESC>:SyntasticToggleMode<CR>
@@ -175,3 +191,7 @@ command PPjson %!python -m json.tool
 
 " xml formatting
 command PPxml %!xmllint --encode UTF-8 --format -
+
+" Invisible characters
+set list
+set listchars=tab:▸\ 
