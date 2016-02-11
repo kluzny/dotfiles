@@ -48,7 +48,7 @@ ZSH_THEME="emojeezispentwaytoomuchtimeonthis"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(bower brew docker git gem meteor npm web-search)
 
 # User configuration
 
@@ -103,9 +103,11 @@ setopt EXTENDED_HISTORY
 
 alias history="fc -diD -l 0"
 
-# on open 
+# on open
 cd ~/Development
-fortune | cowsay
+echo
+iostat 1 1 | tail -n -2
+fortune | cowsay -f $(ls -1 /usr/local/Cellar/cowsay/*/share/cows/*.cow | xargs basename |  gshuf | tail -n 1)
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
