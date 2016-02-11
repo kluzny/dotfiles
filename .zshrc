@@ -132,3 +132,6 @@ export PATH=$PATH:$GOPATH/bin
 
 export PATH=$PATH:"/usr/local/sbin"
 export PATH=$PATH:/usr/local/opt/go/libexec/bin
+
+# pg
+export PGDATA=/usr/local/var/postgres
