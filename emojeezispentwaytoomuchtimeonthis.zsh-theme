@@ -18,42 +18,39 @@ function my_git_remote_status() {
 }
 
 local git_branch='$(my_git_prompt_info)%{$reset_color%}$(my_git_remote_status)'
-local return_code="%(?..%{$fg_bold[red]%}%? ↵%{$reset_color%})"
 
 START="ॐ  "
 AT_SIGN=" 🌍  "
-LOCATION=" 💾 "
-SYMBOL="☠  "
+SYMBOL=" ☠  "
 BRANCH=" 🌴  "
 CLOUD="☁ "
+LOCATION="💾 "
 
-# full
+# traditional
 # PROMPT="$fg_bold[white]$START$reset_color$fg[blue]%n$AT_SIGN$reset_color$fg[cyan]%m$LOCATION$reset_color$fg_bold[cyan]%2~ $git_branch$reset_color%B$SYMBOL%b"
 
 # slim
-PROMPT="$fg_bold[white]$START$reset_color"\
+PROMPT=""\
+"$fg_bold[white]$START$reset_color"\
 "$fg[cyan]%2~$reset_color"\
 "$git_branch$reset_color"\
-" %B$SYMBOL%b"
+"%B$SYMBOL%b"
 
-RPS1="${return_code}"
+RPS1="%{$fg_bold[red]%}$? ☢  $(DATE)%{$reset_color%}"
 
 ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg_bold[yellow]%}"
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}"
 ZSH_THEME_GIT_PROMPT_CLEAN="💾 "
 ZSH_THEME_GIT_PROMPT_ADDED="💩 "
-ZSH_THEME_GIT_PROMPT_UNTRACKED="☢ "
-ZSH_THEME_GIT_PROMPT_MODIFIED="⚡ "
+ZSH_THEME_GIT_PROMPT_UNTRACKED="⚡ "
+ZSH_THEME_GIT_PROMPT_MODIFIED=""
 ZSH_THEME_GIT_PROMPT_RENAMED="$fg_bold[green]♻ $reset_color"
 ZSH_THEME_GIT_PROMPT_DELETED="🔥 "
 ZSH_THEME_GIT_PROMPT_UNMERGED="$fg_bold[white]☯ $reset_color"
-
 ZSH_THEME_GIT_PROMPT_REMOTE_STATUS_DETAILED=true
 ZSH_THEME_GIT_PROMPT_REMOTE_STATUS_PREFIX="%{$fg[yellow]%}("
 ZSH_THEME_GIT_PROMPT_REMOTE_STATUS_SUFFIX="%{$fg[yellow]%})%{$reset_color%}"
-
 ZSH_THEME_GIT_PROMPT_AHEAD_REMOTE=" 🚀  "
 zsh_theme_git_prompt_ahead_remote_color=%{$fg[green]%}
-
 zsh_theme_git_prompt_behind_remote=" 🐌  "
 ZSH_THEME_GIT_PROMPT_BEHIND_REMOTE_COLOR=%{$fg[red]%}
