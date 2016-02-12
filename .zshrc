@@ -135,3 +135,6 @@ export PATH=$PATH:/usr/local/opt/go/libexec/bin
 # pg
 export PGDATA=/usr/local/var/postgres
 export PATH=$PATH:/Library/Frameworks/GDAL.framework/Programs
+
+# tmux autocomplete
+source $(gem path tmuxinator)/completion/tmuxinator.zsh

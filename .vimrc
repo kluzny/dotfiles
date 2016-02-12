@@ -25,6 +25,7 @@ Plugin 'gmarik/Vundle.vim'
 " Plugin 'user/L9', {'name': 'newL9'}
 
 " My Plugins
+Plugin 'christoomey/vim-tmux-navigator'
 
 Plugin 'powerline/powerline', {'rtp': 'powerline/bindings/vim/'}
   set laststatus=2 " always display the powerline
@@ -82,6 +83,7 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_auto_jump=0
 let g:syntastic_enable_signs=1
+let g:syntastic_loc_list_height=5
 
 let g:syntastic_ruby_checkers = ['rubocop']
 let g:syntastic_javascript_checkers = ['jshint']
