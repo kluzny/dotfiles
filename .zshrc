@@ -129,9 +129,9 @@ export PATH=$PATH:$KUBEDIR/bin
 export GO15VENDOREXPERIMENT=1
 export GOPATH=$HOME/Development/golang
 export PATH=$PATH:$GOPATH/bin
-
-export PATH=$PATH:"/usr/local/sbin"
+export PATH=$PATH:/usr/local/sbin
 export PATH=$PATH:/usr/local/opt/go/libexec/bin
 
 # pg
 export PGDATA=/usr/local/var/postgres
+export PATH=$PATH:/Library/Frameworks/GDAL.framework/Programs

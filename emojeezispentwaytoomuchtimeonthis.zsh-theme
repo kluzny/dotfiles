@@ -1,9 +1,6 @@
 # Thanks to gallifrey, upon whose theme this is based
 # Thanks to strug and lukerandall as well
 
-# export CLICOLOR=1
-# export LSCOLORS=dxFxCxDxBxegedabagacad
-
 function my_git_prompt_info() {
   ref=$(git symbolic-ref HEAD 2> /dev/null) || return
   GIT_STATUS=$(git_prompt_status)
@@ -18,13 +15,15 @@ function my_git_remote_status() {
 }
 
 function check_exit_code() {
-  if [[ $? -ne 0 ]]; then
-    echo "%{$fg_bold[red]%}$(DATE) ☢  $?%{$reset_color%}"
+  local RETURN_CODE=$?
+  if [[ RETURN_CODE -ne 0 ]]; then
+    echo "%{$fg_bold[red]%}$(DATE) ☢  $RETURN_CODE%{$reset_color%}"
   else
     echo "%{$fg_bold[white]%}$(DATE)%{$reset_color%}"
   fi
 }
 
+local return_code='$(check_exit_code)'
 local git_branch='$(my_git_prompt_info)%{$reset_color%}$(my_git_remote_status)'
 
 START="ॐ  "
@@ -41,14 +40,14 @@ PROMPT=""\
 "$git_branch%{$reset_color%}"\
 "%B$SYMBOL%b"
 
-RPS1="$(check_exit_code)"
+RPS1="${return_code}"
 
 ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg_bold[yellow]%}"
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}"
 ZSH_THEME_GIT_PROMPT_CLEAN="💾 "
 ZSH_THEME_GIT_PROMPT_ADDED="💩 "
 ZSH_THEME_GIT_PROMPT_UNTRACKED="⚡ "
-ZSH_THEME_GIT_PROMPT_MODIFIED=""
+ZSH_THEME_GIT_PROMPT_MODIFIED="⚡ "
 ZSH_THEME_GIT_PROMPT_RENAMED="%{$fg_bold[green]%}♻ %{$reset_color%}"
 ZSH_THEME_GIT_PROMPT_DELETED="🔥 "
 ZSH_THEME_GIT_PROMPT_UNMERGED="%{$fg_bold[white]%}☯ %{$reset_color%}"
