@@ -1,0 +1,23 @@
+[user]
+	name =
+	email =
+[alias]
+	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+  undo = reset --soft HEAD^
+  st = status
+  co = checkout
+  br = branch
+  fo = fetch origin
+  pom = pull origin master
+  unstage = reset HEAD --
+	last = log -1 HEAD --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+  delete = branch -D
+  amend = commit --amend
+  search = log -S
+  update = remote -v update
+  ls = diff --name-status master
+[core]
+	excludesfile = /Users/kyle/.gitignore
+	editor = /usr/local/bin/vim
+[push]
+	default = matching

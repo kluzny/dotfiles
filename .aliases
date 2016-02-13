@@ -19,6 +19,7 @@ alias up4="cd ../../../.."
 
 alias dev="cd ~/development"
 alias mol="cd ~/development/molecule"
+alias kub="cd ~/development/kubernetes-molecule"
 
 alias c="clear"
 alias v="vim"
@@ -37,20 +38,20 @@ alias N="/dev/null 2>&1"
 # applications
 alias kp="open -a KeePassX"
 alias lh="open -a Google\ Chrome 'http://localhost:3000'"
-alias bb="open -a Google\ Chrome 'http://bitbucket.org'"
+alias gh="hub browse"
 alias gmail="open -a Google\ Chrome 'http://mail.google.com'"
 
 # git
 alias h="hub -p"
 alias gs="git status"
 alias gd="git diff"
+alias gdm="git diff master"
 alias gl="git lg"
-alias glg="git log"
-alias gu="git undo"
+alias gup="git update"
 alias gk="git checkout"
-alias gb="git checkout -b"
+alias gkb="git checkout -b"
 alias ga="git add"
-alias gr="git rm"
+alias grm="git rm"
 alias gmv="git mv"
 alias gc="git commit -m"
 alias gam="git commit -am"
@@ -81,9 +82,10 @@ alias hm="heroku run rake db:migrate --app"
 alias hdb="heroku pg:info --app"
 
 # postgres
-alias pg_start="pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start"
-alias pg_stop="pg_ctl -D /usr/local/var/postgres stop -s -m fast"
-alias pg_status="pg_ctl -D /usr/local/var/postgres status"
+alias pgstart="pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start"
+alias pgstop="pg_ctl -D /usr/local/var/postgres stop -s -m fast"
+alias pgstatus="pg_ctl -D /usr/local/var/postgres status"
+alias pgtail="tail -f /usr/local/var/postgres/server.log"
 
 # network
 alias wanip="curl ipinfo.io/ip"
