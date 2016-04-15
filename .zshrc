@@ -138,3 +138,7 @@ export PATH=$PATH:/Library/Frameworks/GDAL.framework/Programs
 
 # tmux autocomplete
 source $(gem path tmuxinator)/completion/tmuxinator.zsh
+
+# stupid java bullshit
+export JENV_ROOT=/usr/local/var/jenv
+eval "$(jenv init -)"

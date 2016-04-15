@@ -94,3 +94,6 @@ alias wanip="curl ipinfo.io/ip"
 alias mat="cmatrix -a -b -u 4"
 alias byby="say 'All systems are shutting down, Goodbye' && sudo shutdown -h now"
 alias pepe="catimg ~/Downloads/rare_pepe_by_anamaiki-d8t2dd9.png"
+
+# work
+alias updoot="~/Development/updoot.sh"

@@ -26,6 +26,7 @@ Plugin 'gmarik/Vundle.vim'
 
 " My Plugins
 Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'mileszs/ack.vim'
 
 Plugin 'powerline/powerline', {'rtp': 'powerline/bindings/vim/'}
   set laststatus=2 " always display the powerline
@@ -89,9 +90,8 @@ let g:syntastic_ruby_checkers = ['rubocop']
 let g:syntastic_javascript_checkers = ['jshint']
 let g:syntastic_scss_checkers = ['scss_lint']
 let g:syntastic_filetype_map = { 'handlebars.html': 'handlebars' }
-let g:syntastic_mode_map = {'passive_filetypes': ['handlebars']}
 let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
-let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go']  }
+let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go', 'handlebars']  }
 
 " Sometime this is really annoying
 nnoremap <leader>T <ESC>:SyntasticToggleMode<CR>
@@ -132,10 +132,6 @@ autocmd WinEnter * :set relativenumber
 
 "alternate escape sequence
 imap jj <Esc>
-
-"easier save
-imap fj <Esc>:w<CR>i
-nmap fj :w<CR>
 
 "exit shortcut
 imap qq <Esc>:q<CR>
@@ -178,7 +174,8 @@ nnoremap <C-H> <C-W><C-H>
 
 " fold settings
 set foldmethod=indent   "fold based on indent
-set foldnestmax=10      "deepest fold is 10 levels
+set foldnestmax=8       "deepest fold is 10 levels
+set foldminlines=0      "min"
 set nofoldenable        "dont fold by default
 set foldlevel=1         "this is just what i use
 

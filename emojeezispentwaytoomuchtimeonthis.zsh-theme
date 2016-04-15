@@ -49,6 +49,7 @@ ZSH_THEME_GIT_PROMPT_ADDED="💩 "
 ZSH_THEME_GIT_PROMPT_UNTRACKED="⚡ "
 ZSH_THEME_GIT_PROMPT_MODIFIED="⚡ "
 ZSH_THEME_GIT_PROMPT_RENAMED="%{$fg_bold[green]%}♻ %{$reset_color%}"
+ZSH_THEME_GIT_PROMPT_MOVED="%{$fg_bold[green]%}🏃 %{$reset_color%}"
 ZSH_THEME_GIT_PROMPT_DELETED="🔥 "
 ZSH_THEME_GIT_PROMPT_UNMERGED="%{$fg_bold[white]%}☯ %{$reset_color%}"
 ZSH_THEME_GIT_PROMPT_REMOTE_STATUS_DETAILED=true

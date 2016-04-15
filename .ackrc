@@ -1,5 +1,6 @@
 --ignore-dir=log
 --ignore-dir=bower_components
 --ignore-dir=node_modules
+--ignore-dir=frontend/dist
 --ignore-dir=tmp
 --color
