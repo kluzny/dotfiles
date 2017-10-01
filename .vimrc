@@ -61,7 +61,7 @@ au FileType go nmap <leader>r <Plug>(go-run)
 au FileType go nmap <leader>b <Plug>(go-install)
 au FileType go nmap <Leader>d <Plug>(go-doc)
 au FileType go nmap <Leader>i <Plug>(go-implements)
-au FileType go setl noet ci pi sts=0 sw=4 ts=4
+au FileType go setl noet ci pi sts=0 sw=2 ts=2
 
 let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
@@ -166,9 +166,6 @@ set shiftwidth=2 " size of an "indent"
 set softtabstop=2 " a combination of spaces and tabs are used to simulate tab stops
 set smarttab " make tab insert indents instead of tabs at the beginning of a line
 set expandtab " always uses spaces instead of tab characters
-
-" specific overide for vim-go
-autocmd BufNewFile,BufRead *.go setlocal noexpandtab tabstop=2 shiftwidth=2
 
 " ctrl + hjkl split navigation
 nnoremap <C-J> <C-W><C-J>
