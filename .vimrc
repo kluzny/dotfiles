@@ -36,7 +36,7 @@ Plugin 'kien/ctrlp.vim'
   " ctrlp show dotfiles
   let g:ctrlp_show_hidden = 1
   let g:ctrlp_custom_ignore = {
-  \ 'dir': '\v\/(\.git|log|tmp|frontend\/node_modules|frontend\/bower_components)'
+  \ 'dir': '\v\/(\.git|log|tmp|node_modules|bower_components)'
   \ }
 
 Plugin 'ntpeters/vim-better-whitespace'
@@ -87,7 +87,8 @@ let g:syntastic_enable_signs=1
 let g:syntastic_loc_list_height=5
 
 let g:syntastic_ruby_checkers = ['rubocop']
-let g:syntastic_javascript_checkers = ['jshint']
+let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_javascript_eslint_exe='$(npm bin)/eslint'
 let g:syntastic_scss_checkers = ['scss_lint']
 let g:syntastic_filetype_map = { 'handlebars.html': 'handlebars' }
 let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
@@ -194,3 +195,5 @@ command PPxml %!xmllint --encode UTF-8 --format -
 " Invisible characters
 set list
 set listchars=tab:▸\ 
+
+color happy_hacking
