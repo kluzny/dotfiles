@@ -3,6 +3,7 @@ alias reload="source ~/.*shrc"
 # shell commands
 alias ls="ls -a"
 alias ll="ls -lahrt"
+alias l1="ls -1ahrt"
 
 function mkcd () {
   mkdir -pv "$1" && cd "$1"
@@ -94,6 +95,5 @@ alias wanip="curl ipinfo.io/ip"
 alias mat="cmatrix -a -b -u 4"
 alias byby="say 'All systems are shutting down, Goodbye' && sudo shutdown -h now"
 alias pepe="catimg ~/Downloads/rare_pepe_by_anamaiki-d8t2dd9.png"
+alias weather="clear && catimg -w 300 <(curl -s http://www.myownradar.com/corsicana/comp/800x600/texas.gif)"
 
-# work
-alias updoot="~/Development/updoot.sh"
