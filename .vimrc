@@ -167,6 +167,9 @@ set softtabstop=2 " a combination of spaces and tabs are used to simulate tab st
 set smarttab " make tab insert indents instead of tabs at the beginning of a line
 set expandtab " always uses spaces instead of tab characters
 
+" specific overide for vim-go
+autocmd BufNewFile,BufRead *.go setlocal noexpandtab tabstop=2 shiftwidth=2
+
 " ctrl + hjkl split navigation
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
