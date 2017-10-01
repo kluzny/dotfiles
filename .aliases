@@ -75,6 +75,9 @@ alias rc="bundle exec rails console"
 alias aspec="ALL=1 rspec"
 alias pspec="3pline;bundle exec rake parallel:spec;3pline;cat tmp/failing_specs.log;pline;cat tmp/failing_specs.log | grep rspec"
 
+# go
+alias gorun="go run *.go"
+
 # heroku
 alias hc="heroku run --size=PX rails c --app"
 alias hl="heroku logs -t --app"
@@ -96,4 +99,3 @@ alias mat="cmatrix -a -b -u 4"
 alias byby="say 'All systems are shutting down, Goodbye' && sudo shutdown -h now"
 alias pepe="catimg ~/Downloads/rare_pepe_by_anamaiki-d8t2dd9.png"
 alias weather="clear && catimg -w 300 <(curl -s http://www.myownradar.com/corsicana/comp/800x600/texas.gif)"
-

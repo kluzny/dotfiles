@@ -100,7 +100,6 @@ setopt APPEND_HISTORY
 setopt INC_APPEND_HISTORY
 setopt SHARE_HISTORY
 setopt EXTENDED_HISTORY
-
 alias history="fc -diD -l 0"
 
 # on open
@@ -116,29 +115,31 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 [[ -r $NVM_DIR/bash_completion ]] && . $NVM_DIR/bash_completion
 
-
-# The next line updates PATH for the Google Cloud SDK.
-source $HOME/google-cloud-sdk/path.zsh.inc
-
-# The next line enables shell command completion for gcloud.
-source $HOME/google-cloud-sdk/completion.zsh.inc
-export KUBEDIR=$HOME/Development/kubernetes-molecule
-export PATH=$PATH:$KUBEDIR/bin
-
 # go
-export GO15VENDOREXPERIMENT=1
 export GOPATH=$HOME/Development/golang
 export PATH=$PATH:$GOPATH/bin
+export PATH=$PATH:/usr/local/go/bin
+
+# brew
 export PATH=$PATH:/usr/local/sbin
-export PATH=$PATH:/usr/local/opt/go/libexec/bin
 
 # pg
 export PGDATA=/usr/local/var/postgres
 export PATH=$PATH:/Library/Frameworks/GDAL.framework/Programs
 
-# tmux autocomplete
-source $(gem path tmuxinator)/completion/tmuxinator.zsh
-
-# stupid java bullshit
+# java
 export JENV_ROOT=/usr/local/var/jenv
 eval "$(jenv init -)"
+
+export PATH="$HOME/.rbenv/bin:$PATH"
+export PATH="$HOME/Library/Python/2.7/bin:$PATH"
+
+# https://github.com/tmux/tmux/issues/475
+export EVENT_NOKQUEUE=1
+
+eval "$(pyenv init -)"
+
+# custom work aliases
+if [ -f $HOME/.workrc ]; then
+  source $HOME/.workrc
+fi
