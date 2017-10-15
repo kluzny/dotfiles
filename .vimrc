@@ -25,6 +25,9 @@ Plugin 'gmarik/Vundle.vim'
 " Plugin 'user/L9', {'name': 'newL9'}
 
 " My Plugins
+Plugin 'chrisbra/Colorizer'
+  let g:colorizer_auto_filetype='css,html,scss,sass,js'
+
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'mileszs/ack.vim'
 
