@@ -1,0 +1,12 @@
+
+# custom aliases file
+
+if [[ -f $HOME/.aliases ]]; then
+  source $HOME/.aliases;
+fi
+
+# custom work aliases
+
+if [ -f $HOME/.workrc ]; then
+  source $HOME/.workrc
+fi
