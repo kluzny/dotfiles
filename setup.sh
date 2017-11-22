@@ -29,4 +29,7 @@ echo "installing vim plugins"
 vim +BundleInstall +qall
 
 # TODO: copy over .gitconfig.bak to .gitconfig, maybe prompt for username and email
-# TODO: clone down and actually install version managers and initial versions of ruby, python, go, node/npm
+# TODO: rbenv, rubybuild, ruby
+# TODO: pyenv pyenv-virtualenv, python
+# TODO: golang
+# TODO: nvm, node
