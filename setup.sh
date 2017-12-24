@@ -31,5 +31,6 @@ vim +BundleInstall +qall
 # TODO: copy over .gitconfig.bak to .gitconfig, maybe prompt for username and email
 # TODO: rbenv, rubybuild, ruby
 # TODO: pyenv pyenv-virtualenv, python
-# TODO: golang
+# TODO: golang, possibly with https://github.com/syndbg/goenv
 # TODO: nvm, node
+# TODO: bash-git-prompt setup

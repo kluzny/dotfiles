@@ -171,6 +171,16 @@ set softtabstop=2 " a combination of spaces and tabs are used to simulate tab st
 set smarttab " make tab insert indents instead of tabs at the beginning of a line
 set expandtab " always uses spaces instead of tab characters
 
+" python stuff
+au BufNewFile,BufRead *.py
+    \ set tabstop=4 |
+    \ set softtabstop=4 |
+    \ set shiftwidth=4 |
+    \ set textwidth=79 |
+    \ set expandtab |
+    \ set autoindent |
+    \ set fileformat=unix
+
 " ctrl + hjkl split navigation
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
