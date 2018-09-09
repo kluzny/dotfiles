@@ -8,7 +8,19 @@ export EDITOR="vim"
 # time that oh-my-zsh is loaded.
 # ZSH_THEME="robbyrussell"
 # ZSH_THEME="lukerandall"
-ZSH_THEME="emojeezispentwaytoomuchtimeonthis"
+#
+SPACESHIP_NODE_SHOW=false
+SPACESHIP_XCODE_SHOW_LOCAL=false
+SPACESHIP_GOLANG_SHOW=false
+SPACESHIP_RUBY_SHOW=false
+SPACESHIP_DOCKER_SHOW=false
+SPACESHIP_PHP_SHOW=false
+SPACESHIP_KUBECONTEXT_SHOW=false
+SPACESHIP_PROMPT_ADD_NEWLINE=false
+SPACESHIP_PROMPT_SEPARATE_LINE=false
+
+ZSH_THEME="spaceship"
+# ZSH_THEME="emojeezispentwaytoomuchtimeonthis"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -137,7 +149,9 @@ export PATH="$HOME/Library/Python/2.7/bin:$PATH"
 # https://github.com/tmux/tmux/issues/475
 export EVENT_NOKQUEUE=1
 
+export PYENV_VIRTUALENVWRAPPER_PREFER_PYVENV="true"
 eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
 
 # custom work aliases
 if [ -f $HOME/.workrc ]; then

@@ -5,6 +5,8 @@ alias ls="ls -a"
 alias ll="ls -lahrt"
 alias l1="ls -1ahrt"
 
+alias ff="find . -type f -name"
+
 function mkcd () {
   mkdir -pv "$1" && cd "$1"
 }

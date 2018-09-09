@@ -28,6 +28,8 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'chrisbra/Colorizer'
   let g:colorizer_auto_filetype='css,html,scss,sass,js'
 
+Plugin 'posva/vim-vue'
+
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'mileszs/ack.vim'
 
@@ -39,7 +41,7 @@ Plugin 'kien/ctrlp.vim'
   " ctrlp show dotfiles
   let g:ctrlp_show_hidden = 1
   let g:ctrlp_custom_ignore = {
-  \ 'dir': '\v\/(\.git|log|tmp|node_modules|bower_components)'
+  \ 'dir': '\v\/(\.git|tmp|node_modules)'
   \ }
 
 Plugin 'ntpeters/vim-better-whitespace'
@@ -96,6 +98,7 @@ let g:syntastic_scss_checkers = ['scss_lint']
 let g:syntastic_filetype_map = { 'handlebars.html': 'handlebars' }
 let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
 let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go', 'handlebars']  }
+let g:syntastic_eruby_ruby_quiet_messages = {'regex': 'possibly useless use of a variable in void context'}
 
 " Sometime this is really annoying
 nnoremap <leader>T <ESC>:SyntasticToggleMode<CR>
