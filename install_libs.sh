@@ -10,7 +10,7 @@ if [[ $pkg_manager =~ apt\-get$ ]]; then
 fi
 
 # shared
-sudo $pkg_manager -y install vim htop 
+sudo $pkg_manager -y install vim iotop htop glances tmux git insonmia keepassx
 
 # TODO: enumerate the packages for general installs of ruby/python
 # have to figure out a good way to resolve package names that may be different
