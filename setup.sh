@@ -1,23 +1,36 @@
 #!/usr/bin/env bash
-pkg_manager=$(which yum | which apt-get);
-echo "installing vim"
-sudo $pkg_manager -y install vim
 
 echo "linking dotfiles"
-bash ./link_dotfiles.sh
+working_dir=`pwd`
+for dertferl in vimrc ackrc aliases gitignore tmux.conf; do
+  mv -vf $HOME/.$dertferl{,.$(date +"%Y%m%d-%H%M%S").bak}
+  ln -sv $working_dir/.$dertferl $HOME/.$dertferl
+done
+
+local OMZ="$HOME/.oh-my-zsh/themes" 
+if [[ -d "$OMZ" ]]; then
+  echo "copying zsh theme"
+  local THEME="emojeezispentwaytoomuchtimeonthis.zsh-theme"
+  ln -sv $working_dir/$THEME $OMZ/$THEME
+fi
+
+echo "setting up rc file"
+rc_file=$(ls $HOME/.bashrc || ls $HOME/.zshrc || echo "$HOME/.bashrc")
+echo "using rcfile $rc_file"
+cp -vf $rc_file{,.$(date +"%Y%m%d-%H%M%S").bak}
+cat *rc >> $rc_file
+
+echo "installing common packages"
+bash ./install_libs.sh
 
 echo "installing vundler"
 git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 echo "installing vim plugins"
 vim +BundleInstall +qall
 
-echo "setting up (bash|zsh)rc file"
-rc_file=$(ls $HOME/.bashrc || ls $HOME/.zshrc || echo "$HOME/.bashrc")
-echo "using rcfile $rc_file"
-
-aliases_added=$(grep ".aliases" $rc_file)
-if [[ -z "$aliases_added" ]]; then
-  echo "adding aliases file to $rc_file"
-  echo 'source $HOME/.aliases' >> $rc_file
-  source $rc_file
-fi
+# TODO: copy over .gitconfig.bak to .gitconfig, maybe prompt for username and email
+# TODO: rbenv, rubybuild, ruby
+# TODO: pyenv pyenv-virtualenv, python
+# TODO: golang, possibly with https://github.com/syndbg/goenv
+# TODO: nvm, node
+# TODO: bash-git-prompt setup

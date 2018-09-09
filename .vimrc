@@ -25,6 +25,7 @@ Plugin 'gmarik/Vundle.vim'
 " Plugin 'user/L9', {'name': 'newL9'}
 
 " My Plugins
+Plugin 'YorickPeterse/happy_hacking.vim'
 Plugin 'chrisbra/Colorizer'
   let g:colorizer_auto_filetype='css,html,scss,sass,js'
 
@@ -172,6 +173,16 @@ set shiftwidth=2 " size of an "indent"
 set softtabstop=2 " a combination of spaces and tabs are used to simulate tab stops
 set smarttab " make tab insert indents instead of tabs at the beginning of a line
 set expandtab " always uses spaces instead of tab characters
+
+" python stuff
+au BufNewFile,BufRead *.py
+    \ set tabstop=4 |
+    \ set softtabstop=4 |
+    \ set shiftwidth=4 |
+    \ set textwidth=79 |
+    \ set expandtab |
+    \ set autoindent |
+    \ set fileformat=unix
 
 " ctrl + hjkl split navigation
 nnoremap <C-J> <C-W><C-J>
