@@ -93,6 +93,9 @@ alias pgstop="pg_ctl -D /usr/local/var/postgres stop -s -m fast"
 alias pgstatus="pg_ctl -D /usr/local/var/postgres status"
 alias pgtail="tail -f /usr/local/var/postgres/server.log"
 
+# php
+alias phplog="tail -f /var/log/apache2/*.log |  sed 's/\\\n/\n/g'"
+
 # network
 alias wanip="curl ipinfo.io/ip"
 
@@ -100,4 +103,4 @@ alias wanip="curl ipinfo.io/ip"
 alias mat="cmatrix -a -b -u 4"
 alias byby="say 'All systems are shutting down, Goodbye' && sudo shutdown -h now"
 alias pepe="catimg ~/Downloads/rare_pepe_by_anamaiki-d8t2dd9.png"
-alias weather="clear && catimg -w 300 <(curl -s http://www.myownradar.com/corsicana/comp/800x600/texas.gif)"
+alias weather="clear && catimg -w 300 <(curl -s http://www.corad.org/upload/texas/texas.gif)"
