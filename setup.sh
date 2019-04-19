@@ -14,6 +14,9 @@ if [[ -d "$OMZ" ]]; then
   ln -sv $working_dir/$THEME $OMZ/$THEME
 fi
 
+echo "making directory trees"
+mkdir -pv "$HOME/Development/golang"
+
 echo "setting up rc file"
 rc_file=$(ls $HOME/.bashrc || ls $HOME/.zshrc || echo "$HOME/.bashrc")
 echo "using rcfile $rc_file"
@@ -33,4 +36,3 @@ vim +BundleInstall +qall
 # TODO: pyenv pyenv-virtualenv, python
 # TODO: golang, possibly with https://github.com/syndbg/goenv
 # TODO: nvm, node
-# TODO: bash-git-prompt setup

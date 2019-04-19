@@ -10,7 +10,9 @@ if [[ $pkg_manager =~ apt\-get$ ]]; then
 fi
 
 # shared
-sudo $pkg_manager -y install vim iotop htop glances tmux git insonmia keepassx
+sudo $pkg_manager -y install vim iotop htop glances tmux git insomnia keepassx ack
+
+git clone https://github.com/magicmonty/bash-git-prompt.git ~/.bash-git-prompt --depth=1
 
 # TODO: enumerate the packages for general installs of ruby/python
 # have to figure out a good way to resolve package names that may be different
