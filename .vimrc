@@ -51,6 +51,8 @@ Plugin 'ntpeters/vim-better-whitespace'
 
 Plugin 'tpope/vim-rails'
 Plugin 'jiangmiao/auto-pairs'
+Plugin 'phpstan/vim-phpstan'
+let g:phpstan_analyse_level = 0
 
 " some js stuff
 Plugin 'jelera/vim-javascript-syntax'
