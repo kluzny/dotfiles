@@ -3,3 +3,4 @@
 database.yml
 .workrc
 public/assets
+node_modules/**/*

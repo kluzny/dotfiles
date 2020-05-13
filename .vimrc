@@ -216,3 +216,10 @@ set list
 set listchars=tab:▸\ 
 
 color happy_hacking
+
+" Spell check for md files
+augroup markdownSpell
+  autocmd!
+  autocmd FileType markdown setlocal spell
+  autocmd BufRead,BufNewFile *.md setlocal spell
+augroup END

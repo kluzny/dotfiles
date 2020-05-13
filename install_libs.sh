@@ -10,7 +10,7 @@ if [[ $pkg_manager =~ apt\-get$ ]]; then
 fi
 
 # shared
-sudo $pkg_manager -y install vim iotop htop glances tmux git insomnia keepassx ack
+sudo $pkg_manager -y install vim iotop htop glances tmux git insomnia keepassx ack borgbackup curl tree
 
 git clone https://github.com/magicmonty/bash-git-prompt.git ~/.bash-git-prompt --depth=1
 

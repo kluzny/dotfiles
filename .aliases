@@ -27,6 +27,7 @@ alias kub="cd ~/development/kubernetes-molecule"
 alias c="clear"
 alias v="vim"
 alias f="find . -iname"
+alias k="kubectl"
 
 alias pline="printf '%*s\n' \"${COLUMNS:-$(tput cols)}\" '' | tr ' ' -"
 alias 3pline="pline;pline;pline"
@@ -43,6 +44,7 @@ alias kp="open -a KeePassX"
 alias lh="open -a Google\ Chrome 'http://localhost:3000'"
 alias gh="hub browse"
 alias gmail="open -a Google\ Chrome 'http://mail.google.com'"
+alias mux='tmuxinator'
 
 # git
 alias h="hub -p"
@@ -58,24 +60,6 @@ alias grm="git rm"
 alias gmv="git mv"
 alias gc="git commit -m"
 alias gam="git commit -am"
-
-# rails
-alias fs="foreman start"
-alias b="bundle"
-alias be="bundle exec"
-alias ber="bundle exec rspec"
-alias bu="bundle update"
-alias cop="bundle exec rubocop -DR"
-alias rdbcreate="bundle exec rake db:create"
-alias rdbmigrate="bundle exec rake db:migrate && bundle exec rake db:test:prepare"
-alias rdbrollback="bundle exec rake db:rollback"
-alias rdbup="ver=; vared -p 'VERSION: ' ver; bundle exec rake db:migrate:up VERSION=$ver"
-alias rdbdown="ver=; vared -p 'VERSION: ' ver; bundle exec rake db:migrate:down VERSION=$ver"
-alias rspecjs="SHOWJS=1 rspec"
-alias rs="bundle exec rails server"
-alias rc="bundle exec rails console"
-alias aspec="ALL=1 rspec"
-alias pspec="3pline;bundle exec rake parallel:spec;3pline;cat tmp/failing_specs.log;pline;cat tmp/failing_specs.log | grep rspec"
 
 # go
 alias gorun="go run *.go"
