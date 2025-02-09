@@ -1,4 +1,4 @@
-alias reload="source ~/.*shrc"
+alias reload="source ~/.bashrc"
 
 # shell commands
 alias ls="ls -a"
@@ -26,6 +26,7 @@ alias c="clear"
 alias v="vim"
 alias f="find . -iname"
 alias k="kubectl"
+alias mux='tmuxinator'
 
 alias pline="printf '%*s\n' \"${COLUMNS:-$(tput cols)}\" '' | tr ' ' -"
 alias 3pline="pline;pline;pline"
@@ -36,38 +37,6 @@ alias T="tail"
 alias G="grep"
 alias L="less"
 alias N="/dev/null 2>&1"
-
-# applications
-alias kp="open -a KeePassX"
-alias lh="open -a Google\ Chrome 'http://localhost:3000'"
-alias gh="hub browse"
-alias gmail="open -a Google\ Chrome 'http://mail.google.com'"
-alias mux='tmuxinator'
-
-# git
-alias h="hub -p"
-alias gs="git status"
-alias gd="git diff"
-alias gdm="git diff master"
-alias gl="git lg"
-alias gup="git update"
-alias gk="git checkout"
-alias gkb="git checkout -b"
-alias ga="git add"
-alias grm="git rm"
-alias gmv="git mv"
-alias gc="git commit -m"
-alias gam="git commit -am"
-
-# go
-alias gorun="go run *.go"
-
-# heroku
-alias hc="heroku run --size=PX rails c --app"
-alias hl="heroku logs -t --app"
-alias hp="heroku ps --app"
-alias hm="heroku run rake db:migrate --app"
-alias hdb="heroku pg:info --app"
 
 # postgres
 alias pgstart="pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start"
@@ -81,9 +50,13 @@ alias phplog="tail -f /var/log/apache2/*.log |  sed 's/\\\n/\n/g'"
 # network
 alias wanip="curl ipinfo.io/ip"
 
-# fun
+# silly
 alias mat="cmatrix -a -b -u 4"
 alias byby="say 'All systems are shutting down, Goodbye' && sudo shutdown -h now"
-alias pepe="catimg ~/Downloads/rare_pepe_by_anamaiki-d8t2dd9.png"
-alias weather="clear && catimg -w 300 <(curl -s http://www.corad.org/upload/texas/texas.gif)"
 alias please="sudo"
+
+# patch
+alias alpha="ssh alpha"
+alias beta="ssh beta"
+alias gamma="ssh gamma"
+alias delta="ssh delta"

@@ -1,6 +1,12 @@
 --ignore-dir=log
 --ignore-dir=bower_components
 --ignore-dir=node_modules
+--ignore-dir=dist
+--ignore-dir=vendor
+--ignore-dir=.yarn
+--ignore-dir=coverage
 --ignore-dir=frontend/dist
 --ignore-dir=tmp
+--ignore-dir=public/packs
+--ignore-dir=public/packs-test
 --color

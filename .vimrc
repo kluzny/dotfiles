@@ -26,8 +26,8 @@ Plugin 'gmarik/Vundle.vim'
 
 " My Plugins
 Plugin 'YorickPeterse/happy_hacking.vim'
-Plugin 'chrisbra/Colorizer'
-  let g:colorizer_auto_filetype='css,html,scss,sass,js'
+" Plugin 'chrisbra/Colorizer'
+"   let g:colorizer_auto_filetype='css,html,scss,sass,js'
 
 Plugin 'posva/vim-vue'
 
@@ -55,10 +55,10 @@ Plugin 'phpstan/vim-phpstan'
 let g:phpstan_analyse_level = 0
 
 " some js stuff
-Plugin 'jelera/vim-javascript-syntax'
-Plugin 'pangloss/vim-javascript'
-Plugin 'mustache/vim-mustache-handlebars'
-Plugin 'nathanaelkane/vim-indent-guides'
+" Plugin 'jelera/vim-javascript-syntax'
+" Plugin 'pangloss/vim-javascript'
+" Plugin 'mustache/vim-mustache-handlebars'
+" Plugin 'nathanaelkane/vim-indent-guides'
 
 " some template stuff
 Plugin 'slim-template/vim-slim.git'
@@ -213,9 +213,12 @@ command PPxml %!xmllint --encode UTF-8 --format -
 
 " Invisible characters
 set list
-set listchars=tab:▸\ 
+set listchars=tab:·\ 
 
 color happy_hacking
+
+hi GroupListChars ctermfg=230 ctermbg=235 guifg=#F3F2CC guibg=#292929
+match GroupListChars /\t/
 
 " Spell check for md files
 augroup markdownSpell
@@ -223,3 +226,5 @@ augroup markdownSpell
   autocmd FileType markdown setlocal spell
   autocmd BufRead,BufNewFile *.md setlocal spell
 augroup END
+
+set re=1

@@ -3,4 +3,6 @@
 database.yml
 .workrc
 public/assets
-node_modules/**/*
+/node_modules
+inventory
+.ruby-lsp
