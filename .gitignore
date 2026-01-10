@@ -6,3 +6,4 @@ public/assets
 /node_modules
 inventory
 .ruby-lsp
+tmp/
