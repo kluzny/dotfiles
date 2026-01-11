@@ -6,7 +6,7 @@ $os\
 $username\
 [](bg:peach fg:red)\
 $directory\
-[](bg:yellow fg:peach)\
+[](fg:peach bg:yellow)\
 $git_branch\
 $git_status\
 [](fg:yellow bg:green)\
@@ -21,11 +21,11 @@ $haskell\
 $python\
 $ruby\
 [](fg:green bg:sapphire)\
+$custom\
 $conda\
 [](fg:sapphire bg:lavender)\
-$time\
-[ ](fg:lavender)\
 $cmd_duration\
+[ ](fg:lavender)\
 $line_break\
 $character"""
 
@@ -135,6 +135,14 @@ symbol = "💎"
 style = "bg:green"
 format = '[[ $symbol( $version) ](fg:crust bg:green)]($style)'
 
+[custom.rails]
+description = "Rails version"
+symbol = "🚆 "
+when = "test -f Gemfile.lock && grep -q \" rails (\" Gemfile.lock"
+command = "ruby -e \"puts File.read('Gemfile.lock')[/rails \\(([^)]+)\\)/, 1]\""
+style = "bg:sapphire"
+format = '[[ $symbol($output) ](fg:crust bg:sapphire)]($style)'
+
 [docker_context]
 symbol = ""
 style = "bg:sapphire"
@@ -165,12 +173,11 @@ vimcmd_replace_symbol = '[❮](bold fg:lavender)'
 vimcmd_visual_symbol = '[❮](bold fg:yellow)'
 
 [cmd_duration]
-show_milliseconds = true
-format = " in $duration "
-style = "bg:lavender"
+show_milliseconds=true
+format = "[ $duration](fg:crust bg:lavender)"
 disabled = false
-show_notifications = true
-min_time_to_notify = 45000
+show_notifications = false
+min_time_to_notify = 1
 
 [palettes.catppuccin_mocha]
 rosewater = "#f5e0dc"
