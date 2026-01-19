@@ -134,12 +134,13 @@ format = '[[ $symbol( $version)(\(#$virtualenv\)) ](fg:crust bg:green)]($style)'
 symbol = "💎"
 style = "bg:green"
 format = '[[ $symbol( $version) ](fg:crust bg:green)]($style)'
+detect_files = ["Gemfile.lock","Gemfile", "Rakefile", ".ruby-version"]
 
 [custom.rails]
 description = "Rails version"
 symbol = "🚆 "
-when = "test -f Gemfile.lock && grep -q \" rails (\" Gemfile.lock"
-command = "ruby -e \"puts File.read('Gemfile.lock')[/rails \\(([^)]+)\\)/, 1]\""
+when = 'git rev-parse --is-inside-work-tree >/dev/null 2>&1 && test -f "$(git rev-parse --show-toplevel)/Gemfile.lock"'
+command = 'sed -nE "s/^    rails \\(([^)]+)\\).*/\\1/p" "$(git rev-parse --show-toplevel)/Gemfile.lock"'
 style = "bg:sapphire"
 format = '[[ $symbol($output) ](fg:crust bg:sapphire)]($style)'
 

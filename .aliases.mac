@@ -1,0 +1,7 @@
+alias ls='ls -aG'
+alias ll="ls -laGhrt"
+alias l1="ls -1aGhrt"
+
+alias reload="source $HOME/.zshrc"
+
+alias history='fc -t "%Y-%m-%d %H:%M:%S" -l 1'

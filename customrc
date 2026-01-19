@@ -1,14 +1,25 @@
-
-# custom aliases file
+# custom aliases
 
 if [[ -f $HOME/.aliases ]]; then
   source $HOME/.aliases;
+fi
+
+# custom mac aliases
+
+if [[ -f $HOME/.aliases.mac ]]; then
+  source $HOME/.aliases.mac;
 fi
 
 # custom work aliases
 
 if [ -f $HOME/.workrc ]; then
   source $HOME/.workrc
+fi
+
+# configure history
+
+if [[ -f $HOME/.historyrc ]]; then
+  source $HOME/.historyrc;
 fi
 
 export EDITOR='vim'
