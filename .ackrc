@@ -9,4 +9,7 @@
 --ignore-dir=tmp
 --ignore-dir=public/packs
 --ignore-dir=public/packs-test
+--ignore-dir=htmlcov
+--ignore-dir=test-reports
+--ignore-dir=.ruby-lsp
 --color
