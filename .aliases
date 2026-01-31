@@ -22,6 +22,7 @@ alias up4="cd ../../../.."
 
 alias dev="cd ~/Development"
 alias dots="cd ~/Development/dotfiles"
+alias nconf="cd ~/.config/nvim"
 
 alias c="clear"
 alias v="vim"
