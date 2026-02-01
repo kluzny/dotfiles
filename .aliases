@@ -1,9 +1,9 @@
 alias reload="source ~/.bashrc"
 
 # shell commands
-alias ls="ls -a"
-alias ll="ls -lahrt"
-alias l1="ls -1ahrt"
+alias ls="ls -a --color"
+alias ll="ls -lahrt --color"
+alias l1="ls -1ahrt --color"
 
 alias ff="find . -type f -name"
 
