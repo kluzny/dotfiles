@@ -11,6 +11,7 @@ return {
       "--smart-case",
       "--follow", -- follow symlinks
       "--hidden", -- search dotfiles
+      "--no-ignore", -- don't respect .gitignore
       "--glob", "!**/.git/*",
       "--glob", "!**/node_modules/*",
       "--glob", "!**/.DS_Store",
@@ -25,6 +26,7 @@ return {
         "--strip-cwd-prefix",
         "--follow", -- follow symlinks
         "--hidden", -- search dotfiles
+        "--no-ignore", -- don't respect .gitignore
         "--exclude", ".git",
         "--exclude", "node_modules",
         "--exclude", ".DS_Store",
