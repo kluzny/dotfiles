@@ -15,6 +15,7 @@ return {
       "--glob", "!**/.git/*",
       "--glob", "!**/node_modules/*",
       "--glob", "!**/.DS_Store",
+      "--glob", "!**/tmp/cache/assets", -- sprockets
     },
   },
   pickers = {
@@ -30,6 +31,7 @@ return {
         "--exclude", ".git",
         "--exclude", "node_modules",
         "--exclude", ".DS_Store",
+        "--exclude", "tmp/cache/assets", -- sprockets
       },
     },
   },
