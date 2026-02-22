@@ -17,6 +17,8 @@
   update = remote -v update
   ls = diff --name-status master
   continue = rebase --continue
+  cached = diff --cached
+  unstage = restore --staged
 [core]
   excludesfile = /Users/kyle/.gitignore
   editor = /usr/local/bin/vim

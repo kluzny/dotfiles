@@ -15,7 +15,10 @@ return {
       "--glob", "!**/.git/*",
       "--glob", "!**/node_modules/*",
       "--glob", "!**/.DS_Store",
-      "--glob", "!**/tmp/cache/assets", -- sprockets
+      "--glob", "!**/tmp/cache", -- sprockets
+      "--glob", "!**/public/assets", -- sprockets
+      "--glob", "!**/test/reports",
+      "--glob", "!**/.venv", -- uv
     },
   },
   pickers = {
@@ -31,7 +34,10 @@ return {
         "--exclude", ".git",
         "--exclude", "node_modules",
         "--exclude", ".DS_Store",
-        "--exclude", "tmp/cache/assets", -- sprockets
+        "--exclude", "tmp/cache", -- sprockets
+        "--exclude", "public/assets", -- sprockets
+        "--exclude", "test/reports",
+        "--exclude", ".venv", -- uv
       },
     },
   },

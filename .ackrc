@@ -12,4 +12,6 @@
 --ignore-dir=htmlcov
 --ignore-dir=test-reports
 --ignore-dir=.ruby-lsp
+--ignore-dir=.venv
+--ignore-dir=test/reports
 --color
