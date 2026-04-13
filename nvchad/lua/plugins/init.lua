@@ -1,7 +1,7 @@
 return {
   {
      "stevearc/conform.nvim",
-     -- event = 'BufWritePre', -- uncomment for format on save
+     event = 'BufWritePre', -- format on save
      opts = require "configs.conform",
   },
   -- These are some examples, uncomment them if you want to see them work!
@@ -60,6 +60,7 @@ return {
       require('whitespace-nvim').setup({})
     end
   },
+
   -- test new blink
   -- { import = "nvchad.blink.lazyspec" },
 
