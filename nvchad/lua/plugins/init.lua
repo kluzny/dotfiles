@@ -60,6 +60,21 @@ return {
       require('whitespace-nvim').setup({})
     end
   },
+  {
+    "kluzny/yank-path.nvim",
+    lazy = false,  -- Load immediately on startup
+    config = function()
+      require("yank-path").setup({
+        default_keymaps = {
+          enabled = true,
+          yank_path = "<leader>yp",
+          yank_full = "<leader>yP",
+          yank_name = "<leader>yn",
+          yank_dir = "<leader>yd",
+        }
+      })
+    end,
+  },
 
   -- test new blink
   -- { import = "nvchad.blink.lazyspec" },
