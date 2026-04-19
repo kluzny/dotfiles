@@ -3,24 +3,20 @@
   email =
 [alias]
   lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
-  undo = reset --soft HEAD^
-  st = status
-  co = checkout
-  br = branch
-  fo = fetch origin
-  pom = pull origin master
-  unstage = reset HEAD --
+  ls = diff --name-status master
   last = log -1 HEAD --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
-  delete = branch -D
+  st = status
+  br = branch
+  undo = reset --soft HEAD^
+  unstage = restore --staged
   amend = commit --amend
+  delete = branch -D
   search = log -S
   update = remote -v update
-  ls = diff --name-status master
   continue = rebase --continue
   cached = diff --cached
-  unstage = restore --staged
 [core]
-  excludesfile = /Users/kyle/.gitignore
+  excludesfile = /home/dir/.gitignore
   editor = /usr/local/bin/vim
 [push]
   default = matching
