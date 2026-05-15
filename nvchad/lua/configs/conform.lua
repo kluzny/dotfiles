@@ -1,10 +1,17 @@
 local options = {
 	formatters_by_ft = {
 		lua = { "stylua" },
-		-- IMPORTANT: isort first, then black
-		python = { "isort", "black" },
-		-- css = { "prettier" },
-		-- html = { "prettier" },
+		python = { "ruff_format", "ruff_organize_imports" },
+		ruby = { "rubocop" },
+		javascript = { "prettier" },
+		typescript = { "prettier" },
+		javascriptreact = { "prettier" },
+		typescriptreact = { "prettier" },
+		css = { "prettier" },
+		html = { "prettier" },
+		json = { "prettier" },
+		yaml = { "prettier" },
+		markdown = { "prettier" },
 	},
 
 	format_on_save = {
