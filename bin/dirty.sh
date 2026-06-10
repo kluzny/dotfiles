@@ -15,7 +15,6 @@ dirty_files=$(
 
 if [ -z "$dirty_files" ]; then
   echo "No dirty files found in git"
-  exit 0
 fi
 
 # Pass to nvim
