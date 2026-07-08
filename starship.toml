@@ -23,11 +23,13 @@ $haskell\
 $python\
 $ruby\
 [](fg:green bg:sapphire)\
-$custom\
+${custom.rails}\
 $conda\
 [](fg:sapphire bg:lavender)\
+${custom.app}\
+[](fg:lavender bg:mauve)\
 $cmd_duration\
-[ ](fg:lavender)\
+[ ](fg:mauve)\
 $line_break\
 $character"""
 
@@ -146,6 +148,14 @@ command = 'sed -nE "s/^    rails \\(([^)]+)\\).*/\\1/p" "$(git rev-parse --show-
 style = "bg:sapphire"
 format = '[[ $symbol($output) ](fg:crust bg:sapphire)]($style)'
 
+[custom.app]
+description = "Application version"
+symbol = "📦 "
+when = 'git rev-parse --is-inside-work-tree >/dev/null 2>&1 && { test -f "$(git rev-parse --show-toplevel)/version.txt" || test -f "$(git rev-parse --show-toplevel)/app/version.txt"; }'
+command = 'cat "$(git rev-parse --show-toplevel)/version.txt" 2>/dev/null || cat "$(git rev-parse --show-toplevel)/app/version.txt" 2>/dev/null'
+style = "bg:lavender"
+format = '[[ $symbol($output) ](fg:crust bg:lavender)]($style)'
+
 [docker_context]
 symbol = ""
 style = "bg:sapphire"
@@ -177,7 +187,7 @@ vimcmd_visual_symbol = '[❮](bold fg:yellow)'
 
 [cmd_duration]
 show_milliseconds=true
-format = "[ $duration](fg:crust bg:lavender)"
+format = "[ $duration](fg:crust bg:mauve)"
 disabled = false
 show_notifications = false
 min_time_to_notify = 1
