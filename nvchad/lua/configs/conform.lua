@@ -14,11 +14,16 @@ local options = {
 		markdown = { "prettier" },
 	},
 
-	format_on_save = {
+	format_on_save = function(bufnr)
+		if require("utils").is_noformat_buf(bufnr) then
+			return nil
+		end
 		-- These options will be passed to conform.format()
-		timeout_ms = 1000,
-		lsp_format = "fallback",
-	},
+		return {
+			timeout_ms = 1000,
+			lsp_format = "fallback",
+		}
+	end,
 }
 
 return options

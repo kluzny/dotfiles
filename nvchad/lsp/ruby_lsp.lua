@@ -43,6 +43,9 @@ return {
         group = augroup,
         buffer = bufnr,
         callback = function()
+          if require("utils").is_noformat_buf(bufnr) then
+            return
+          end
           vim.lsp.buf.format({ bufnr = bufnr })
         end,
       })
