@@ -3,7 +3,7 @@
 echo "installing bash-git-prompt"
 git clone https://github.com/magicmonty/bash-git-prompt.git ~/.bash-git-prompt --depth=1
 
-timestamp=`date`
+timestamp=$(date)
 tee -a ~/.bashrc << END
 
 # Added by \`install_bash_git_prompt.sh\` on $timestamp

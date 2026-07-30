@@ -7,15 +7,16 @@ set -euo pipefail
 # - git diff --name-only: unstaged changes
 # - git diff --cached --name-only: staged changes
 # - git ls-files --others --exclude-standard: untracked files
-dirty_files=$(
+mapfile -t dirty_files < <(
   git diff --name-only
   git diff --cached --name-only
   git ls-files --others --exclude-standard
 )
 
-if [ -z "$dirty_files" ]; then
+if [ ${#dirty_files[@]} -eq 0 ]; then
   echo "No dirty files found in git"
+  exit 0
 fi
 
 # Pass to nvim
-nvim $dirty_files
+nvim "${dirty_files[@]}"

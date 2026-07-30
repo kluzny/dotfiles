@@ -187,13 +187,14 @@ echo -e "${YELLOW}Restoring original configuration...${NC}"
 cp "$TMUX_CONF_BACKUP" "$TMUX_CONF"
 
 # Generate summary report
-echo "" >> "$RESULTS_FILE"
-echo "=======================================" >> "$RESULTS_FILE"
-echo "SUMMARY" >> "$RESULTS_FILE"
-echo "=======================================" >> "$RESULTS_FILE"
-
-echo "" >> "$RESULTS_FILE"
-echo "Performance Impact Analysis:" >> "$RESULTS_FILE"
+{
+  echo ""
+  echo "======================================="
+  echo "SUMMARY"
+  echo "======================================="
+  echo ""
+  echo "Performance Impact Analysis:"
+} >> "$RESULTS_FILE"
 plugin_impact=$(awk "BEGIN {printf \"%.3f\", ($baseline - $no_plugins)}")
 status_impact=$(awk "BEGIN {printf \"%.3f\", ($baseline - $no_status)}")
 if (( $(awk "BEGIN {print $baseline > 0}") )); then
