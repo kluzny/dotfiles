@@ -2,7 +2,14 @@ return {
   mason = false,
   cmd = { vim.fn.expand("~/.asdf/shims/ruby-lsp") },
   filetypes = { "ruby", "eruby" },
-  root_markers = { "Gemfile", ".git" },
+  -- returning nothing (no on_dir call) skips starting the client for this buffer
+  root_dir = function(bufnr, on_dir)
+    if require("utils").is_ignored_buf(bufnr) then
+      return
+    end
+    local fname = vim.api.nvim_buf_get_name(bufnr)
+    on_dir(vim.fs.root(fname, { "Gemfile", ".git" }))
+  end,
   init_options = {
     formatter = "rubocop",
     linters = { "rubocop" },
@@ -43,9 +50,6 @@ return {
         group = augroup,
         buffer = bufnr,
         callback = function()
-          if require("utils").is_noformat_buf(bufnr) then
-            return
-          end
           vim.lsp.buf.format({ bufnr = bufnr })
         end,
       })

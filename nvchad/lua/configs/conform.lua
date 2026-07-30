@@ -15,7 +15,7 @@ local options = {
 	},
 
 	format_on_save = function(bufnr)
-		if require("utils").is_noformat_buf(bufnr) then
+		if require("utils").is_ignored_buf(bufnr) then
 			return nil
 		end
 		-- These options will be passed to conform.format()
