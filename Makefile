@@ -13,12 +13,12 @@ help:
 	@echo ""
 	@echo "Lints:"
 	@echo "  lint               Run all lint/syntax checks"
-	@echo "  lint-shellcheck    shellcheck bash scripts in bin/ and scripts/"
+	@echo "  lint-shellcheck    shellcheck for loose bash scripts in bin/ and scripts/"
 	@echo "  lint-zsh           zsh -n syntax check for rc files"
-	@echo "  lint-ruby          ruby -c syntax check for bin/when.rb"
+	@echo "  lint-ruby          ruby -c syntax check for loose .rb files in bin/ and scripts/"
 	@echo "  lint-lua           luac -p syntax check for nvchad lua files"
-	@echo "  lint-json          jq syntax check for keybindings.json"
-	@echo "  lint-toml          python3 tomllib syntax check for starship.toml"
+	@echo "  lint-json          jq syntax check for loose .json files at repo root"
+	@echo "  lint-toml          python3 tomllib syntax check for loose .toml files at repo root"
 
 ### Lints
 .PHONY: lint lint-shellcheck lint-zsh lint-ruby lint-lua lint-json lint-toml
@@ -45,8 +45,10 @@ lint-zsh:
 
 lint-ruby:
 	@if command -v ruby >/dev/null 2>&1; then \
-		echo "==> ruby -c bin/when.rb"; \
-		ruby -c bin/when.rb; \
+		for f in $(wildcard bin/*.rb) $(wildcard scripts/*.rb); do \
+			echo "==> ruby -c $$f"; \
+			ruby -c "$$f" || exit 1; \
+		done; \
 	else \
 		echo "skip: ruby not installed"; \
 	fi
@@ -61,16 +63,18 @@ lint-lua:
 
 lint-json:
 	@if command -v jq >/dev/null 2>&1; then \
-		echo "==> jq empty keybindings.json"; \
-		jq empty keybindings.json; \
+		echo "==> jq empty *.json"; \
+		jq empty $(wildcard *.json); \
 	else \
 		echo "skip: jq not installed"; \
 	fi
 
 lint-toml:
 	@if command -v python3 >/dev/null 2>&1 && python3 -c "import tomllib" >/dev/null 2>&1; then \
-		echo "==> python3 tomllib starship.toml"; \
-		python3 -c "import tomllib; tomllib.load(open('starship.toml', 'rb'))"; \
+		for f in $(wildcard *.toml); do \
+			echo "==> python3 tomllib $$f"; \
+			python3 -c "import tomllib; tomllib.load(open('$$f', 'rb'))" || exit 1; \
+		done; \
 	else \
 		echo "skip: python3 tomllib unavailable (requires Python 3.11+)"; \
 	fi
