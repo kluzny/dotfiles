@@ -10,7 +10,8 @@ mkdir -p "$target_dir"
 for src in "$bin_dir"/*; do
   [ -f "$src" ] || continue
   name="$(basename "$src")"
-  dest="$target_dir/$name"
+  # strip .sh so linked commands are invoked as `dirty`, not `dirty.sh`
+  dest="$target_dir/${name%.sh}"
 
   if [ -L "$dest" ]; then
     current_target="$(readlink "$dest")"

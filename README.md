@@ -13,7 +13,7 @@ Personal shell, neovim, tmux, and prompt configuration, plus a handful of small 
 - `.aliases`, `.aliases.mac`, `.historyrc`, `customrc` — shell rc files. `customrc` is the entry point, sourcing the others plus a machine-local `~/.workrc`.
 - `.vimrc` — legacy Vundle-based config for plain `vim` (not used by Neovim).
 - `nvchad/` — Neovim config layered on NvChad. See `nvchad/README.md` for theme, keymaps, LSP, and plugin details.
-- `bin/` — personal CLI utilities (`dirty`, `ramchop`, `when.sh`/`when.rb`). Symlinked into `~/.local/bin` by `scripts/install_bins.sh`.
+- `bin/` — personal CLI utilities (`dirty.sh`, `ramchop.sh`, `when.sh`/`when.rb`). Symlinked into `~/.local/bin` by `scripts/install_bins.sh`, which strips the `.sh` suffix so they land as `dirty`, `ramchop`, `when`, etc.
 - `scripts/` — standalone, manually-run machine-provisioning scripts.
 - `starship.toml`, `keybindings.json`, `.tmux.conf` — prompt, VS Code keybindings, and tmux config.
 - `Makefile` — `make help` for targets, `make lint` to syntax-check the repo (see Linting below).
@@ -26,6 +26,6 @@ These files are meant to be **symlinked** into place, not copied — `ln -s` a g
 
 ## Linting
 
-`make lint` runs the syntax checks this repo has: shellcheck for `bin/`/`scripts/` shell scripts, `zsh -n` for the rc files, and `ruby -c` / `luac -p` / `jq` / a TOML parse for the rest. Run `make help` to see all targets.
+`make lint` runs the syntax checks this repo has: shellcheck against every `bin/*.sh` and `scripts/*.sh` file (so new scripts are picked up automatically, no Makefile edit needed), `zsh -n` for the rc files, and `ruby -c` / `luac -p` / `jq` / a TOML parse for the rest. Run `make help` to see all targets.
 
 See `AGENTS.md` for more detailed notes on how these pieces fit together.

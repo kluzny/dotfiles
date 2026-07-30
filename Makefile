@@ -27,8 +27,8 @@ lint: lint-shellcheck lint-zsh lint-ruby lint-lua lint-json lint-toml
 
 lint-shellcheck:
 	@if command -v shellcheck >/dev/null 2>&1; then \
-		echo "==> shellcheck bin/dirty bin/ramchop bin/when.sh scripts/*.sh"; \
-		shellcheck bin/dirty bin/ramchop bin/when.sh $(wildcard scripts/*.sh); \
+		echo "==> shellcheck bin/*.sh scripts/*.sh"; \
+		shellcheck $(wildcard bin/*.sh) $(wildcard scripts/*.sh); \
 	else \
 		echo "skip: shellcheck not installed"; \
 	fi
