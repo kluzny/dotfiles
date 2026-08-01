@@ -25,11 +25,28 @@ else
   start=$(( now - remainder + 1800 ))
 fi
 
+# GNU date (Linux) treats `-r` as "use this file's mtime" and wants `-d @epoch`
+# for epoch input; BSD date (macOS) treats `-r epoch` as the epoch itself.
+if date --version >/dev/null 2>&1; then
+  is_gnu_date=1
+else
+  is_gnu_date=0
+fi
+
+tz_date() {
+  local tz=$1 epoch=$2 fmt=$3
+  if [ "$is_gnu_date" -eq 1 ]; then
+    TZ=$tz date -d "@${epoch}" "$fmt"
+  else
+    TZ=$tz date -r "$epoch" "$fmt"
+  fi
+}
+
 print_row() {
   local epoch=$1
   local row=""
   for tz in "${zones[@]}"; do
-    row+=$(printf "%-${col_width}s" "$(TZ=$tz date -r "$epoch" +%FT%T%z)")
+    row+=$(printf "%-${col_width}s" "$(tz_date "$tz" "$epoch" +%FT%T%z)")
   done
   echo "$row"
 }
@@ -45,13 +62,13 @@ header_cell() {
 if [ "$plain" -eq 1 ]; then
   header=""
   for tz in "${zones[@]}"; do
-    header+=$(printf "%-${col_width}s" "$(TZ=$tz date -r "$start" +%Z)")
+    header+=$(printf "%-${col_width}s" "$(tz_date "$tz" "$start" +%Z)")
   done
   echo "$header"
 else
   header=""
   for tz in "${zones[@]}"; do
-    header+=$(printf "%-${col_width}s" "$(header_cell "$(TZ=$tz date -r "$start" +%Z)")")
+    header+=$(printf "%-${col_width}s" "$(header_cell "$(tz_date "$tz" "$start" +%Z)")")
   done
   echo "$header"
 fi
