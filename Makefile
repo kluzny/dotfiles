@@ -3,22 +3,27 @@ SHELL := /bin/bash
 .DEFAULT_GOAL := help
 
 ### Utilities
-.PHONY: help
+.PHONY: help install
 
 help:
 	@echo "Usage: make [target]"
 	@echo ""
 	@echo "Utilities:"
 	@echo "  help               Show this help"
+	@echo "  install            Symlink bin/ utilities and tracked configs into place"
 	@echo ""
 	@echo "Lints:"
 	@echo "  lint               Run all lint/syntax checks"
 	@echo "  lint-shellcheck    shellcheck for loose bash scripts in bin/ and scripts/"
 	@echo "  lint-zsh           zsh -n syntax check for rc files"
 	@echo "  lint-ruby          ruby -c syntax check for loose .rb files in bin/ and scripts/"
-	@echo "  lint-lua           luac -p syntax check for nvchad lua files"
+	@echo "  lint-lua           luac -p syntax check for nvim config lua files"
 	@echo "  lint-json          jq syntax check for loose .json files at repo root"
-	@echo "  lint-toml          python3 tomllib syntax check for loose .toml files at repo root"
+	@echo "  lint-toml          python3 tomllib syntax check for tracked .toml files"
+
+install:
+	@./scripts/install_bins.sh
+	@./scripts/install_configs.sh
 
 ### Lints
 .PHONY: lint lint-shellcheck lint-zsh lint-ruby lint-lua lint-json lint-toml
@@ -55,8 +60,8 @@ lint-ruby:
 
 lint-lua:
 	@if command -v luac >/dev/null 2>&1; then \
-		echo "==> luac -p (nvchad lua files)"; \
-		luac -p $$(find nvchad -name '*.lua'); \
+		echo "==> luac -p (nvim config lua files)"; \
+		luac -p $$(find .config/nvim -name '*.lua'); \
 	else \
 		echo "skip: luac not installed"; \
 	fi
@@ -71,7 +76,7 @@ lint-json:
 
 lint-toml:
 	@if command -v python3 >/dev/null 2>&1 && python3 -c "import tomllib" >/dev/null 2>&1; then \
-		for f in $(wildcard *.toml); do \
+		for f in $(wildcard *.toml) $(wildcard .config/*/*.toml); do \
 			echo "==> python3 tomllib $$f"; \
 			python3 -c "import tomllib; tomllib.load(open('$$f', 'rb'))" || exit 1; \
 		done; \

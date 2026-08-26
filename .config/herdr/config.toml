@@ -1,0 +1,29 @@
+onboarding = false
+# herdr configuration
+
+[ui.sound]
+# shh
+enabled = false
+
+[keys]
+# swap the leader
+prefix = "ctrl+e"
+edit_scrollback = "ctrl+b"
+
+# number row
+switch_tab = "prefix+alt+1..9"
+switch_workspace = "prefix+1..9"
+focus_agent = "prefix+shift+1..9"
+
+# panes
+new_tab = "prefix+t"
+split_horizontal = "prefix+o"
+split_vertical = "prefix+i"
+focus_pane_left = ["ctrl+h", "prefix+h"]
+focus_pane_down = ["ctrl+j", "prefix+j"]
+focus_pane_up = ["ctrl+k", "prefix+k"]
+focus_pane_right = ["ctrl+l", "prefix+l"]
+
+[theme]
+name = "catppuccin"
+auto_switch = false
