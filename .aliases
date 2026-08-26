@@ -63,3 +63,5 @@ alias alpha="ssh alpha"
 alias beta="ssh beta"
 alias gamma="ssh gamma"
 alias delta="ssh delta"
+
+alias env='saferenv'
