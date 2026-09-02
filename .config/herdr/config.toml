@@ -15,8 +15,14 @@ switch_tab = "prefix+alt+1..9"
 switch_workspace = "prefix+1..9"
 focus_agent = "prefix+shift+1..9"
 
-# panes
+# tabs 
 new_tab = "prefix+t"
+next_tab = "prefix+tab"
+
+# workspaces
+new_workspace = "prefix+n"
+
+# panes
 split_horizontal = "prefix+o"
 split_vertical = "prefix+i"
 focus_pane_left = ["ctrl+h", "prefix+h"]
