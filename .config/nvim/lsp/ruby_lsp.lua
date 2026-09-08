@@ -40,6 +40,12 @@ return {
         implicitRescue = true,
       },
     },
+    addonSettings = {
+      -- disable the ruby-lsp-rails prompt to run pending migrations
+      ["Ruby LSP Rails"] = {
+        enablePendingMigrationsPrompt = false,
+      },
+    },
   },
   -- autosave
   on_attach = function(client, bufnr)

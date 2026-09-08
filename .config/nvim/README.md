@@ -39,6 +39,7 @@ Configured in `lua/configs/lspconfig.lua` and `lsp/ruby_lsp.lua`.
   - Enables an expanded set of ruby-lsp features: inlay hints, code lens, semantic highlighting, and more.
   - Formats Ruby buffers on save through the LSP client itself, rather than through conform.
   - Respects the per-project opt-out described below when deciding whether to start at all.
+  - Disables the ruby-lsp-rails add-on's "run pending migrations" prompt via `addonSettings`.
 
 ## Per-project opt-out
 
