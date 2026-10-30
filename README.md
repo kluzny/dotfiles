@@ -13,7 +13,7 @@ Personal shell, neovim, tmux, and prompt configuration, plus a handful of small 
 - `.aliases`, `.aliases.mac`, `.historyrc`, `customrc` — shell rc files. `customrc` is the entry point, sourcing the others plus a machine-local `~/.workrc`.
 - `.vimrc` — legacy Vundle-based config for plain `vim` (not used by Neovim).
 - `.config/nvim/` — Neovim config layered on NvChad. See `.config/nvim/README.md` for theme, keymaps, LSP, and plugin details.
-- `bin/` — personal CLI utilities (`dirty.sh`, `ramchop.sh`, `when.sh`/`when.rb`). Symlinked into `~/.local/bin` by `scripts/install_bins.sh`, which strips the `.sh` suffix so they land as `dirty`, `ramchop`, `when`, etc.
+- `bin/` — personal CLI utilities (`dirty.sh`, `git-reap-branches.sh`, `ramchop.sh`, `saferenv.sh`, `when.sh`/`when.rb`). Symlinked into `~/.local/bin` by `scripts/install_bins.sh`, which strips the `.sh` suffix so they land as `dirty`, `ramchop`, `when`, etc. `git-reap-branches` deletes local branches already merged into the remote base and, because of its `git-` prefix, also runs as `git reap-branches` (`-h` for usage, `--dry-run` to preview). `saferenv` lists environment variable names with values redacted.
 - `scripts/` — standalone, manually-run machine-provisioning scripts.
 - `starship.toml`, `keybindings.json`, `.tmux.conf` — prompt, VS Code keybindings, and tmux config.
 - `.config/herdr/config.toml` — Herdr config, the only Herdr file tracked here (logs/sockets/session state under `~/.config/herdr/` are runtime data, not config).
