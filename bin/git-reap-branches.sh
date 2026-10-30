@@ -145,19 +145,30 @@ is_protected() {
   return 1
 }
 
-report() {
-  printf '%-10s %-28s %s\n' "$1" "$2" "$3"
+# buffered so output prints grouped by classification instead of ref order
+skip_lines=()
+warn_lines=()
+reap_lines=()
+restores=()
+
+line() {
+  printf -v formatted '%-10s %-28s %s' "$1" "$2" "$3"
+}
+
+skip() {
+  line skipped "$1" "$2"
+  skip_lines+=("$formatted")
 }
 
 warn() {
-  report warning "$1" "$2" >&2
-  warned=$((warned + 1))
+  line warning "$1" "$2"
+  warn_lines+=("$formatted")
 }
 
-reaped=0
-skipped=0
-warned=0
-restores=()
+reap() {
+  line "$1" "$2" "$3"
+  reap_lines+=("$formatted")
+}
 
 # snapshot first so deletions don't race the ref listing
 branches="$(git for-each-ref --format='%(refname)' refs/heads)"
@@ -167,15 +178,13 @@ while IFS= read -r ref; do
   branch="${ref#refs/heads/}"
 
   if is_protected "$branch"; then
-    report skipped "$branch" "protected"
-    skipped=$((skipped + 1))
+    skip "$branch" "protected"
     continue
   fi
 
   ahead="$(git rev-list --count "$base_ref..$ref")"
   if [ "$ahead" -ne 0 ]; then
-    report skipped "$branch" "not merged into $remote/$base, commits: $ahead"
-    skipped=$((skipped + 1))
+    skip "$branch" "not merged into $remote/$base, commits: $ahead"
     continue
   fi
 
@@ -197,16 +206,14 @@ while IFS= read -r ref; do
 
   sha="$(git rev-parse "$ref")"
   if [ "$dry_run" -eq 1 ]; then
-    report reap-ok "$branch" "${sha:0:7}"
-    reaped=$((reaped + 1))
+    reap reap-ok "$branch" "${sha:0:7}"
     continue
   fi
 
   # -D because the ancestry check above is authoritative; -d compares against
   # the upstream or HEAD and refuses wrongly from a feature branch
   if err="$(git branch -D "$branch" 2>&1 >/dev/null)"; then
-    report !reaped "$branch" "${sha:0:7}"
-    reaped=$((reaped + 1))
+    reap !reaped "$branch" "${sha:0:7}"
     restores+=("git branch $(printf '%q' "$branch") $sha")
   else
     warn "$branch" "git branch -D failed: $err"
@@ -214,6 +221,21 @@ while IFS= read -r ref; do
 done <<EOF
 $branches
 EOF
+
+# the ${a[@]+...} guard keeps an empty array from tripping `set -u` on bash 3.2
+for entry in ${skip_lines[@]+"${skip_lines[@]}"}; do
+  echo "$entry"
+done
+for entry in ${warn_lines[@]+"${warn_lines[@]}"}; do
+  echo "$entry" >&2
+done
+for entry in ${reap_lines[@]+"${reap_lines[@]}"}; do
+  echo "$entry"
+done
+
+reaped=${#reap_lines[@]}
+skipped=${#skip_lines[@]}
+warned=${#warn_lines[@]}
 
 echo
 if [ "$dry_run" -eq 1 ]; then
