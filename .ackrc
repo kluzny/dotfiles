@@ -18,4 +18,5 @@
 --ignore-dir=.venv
 --ignore-dir=test/reports
 --ignore-dir=spec/reports
+--ignore-dir=.ruff_cache
 --color
